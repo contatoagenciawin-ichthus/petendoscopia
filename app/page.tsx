@@ -56,14 +56,38 @@ export default function Home() {
         {services.map((service) => <article key={service.n}><span>{service.n}</span><h3>{service.title}</h3><p>{service.text}</p><a href={whatsapp} target="_blank" rel="noreferrer">Conversar sobre este serviço →</a></article>)}
       </section>
 
+      <section className="real-work" aria-label="Pet Endoscopia em atendimento">
+        <div className="real-work-main">
+          <Image src="/images/equipe-procedimento.webp" alt="Equipe da Pet Endoscopia realizando um procedimento veterinário" width={1050} height={1400} sizes="(max-width: 800px) 100vw, 60vw" unoptimized />
+        </div>
+        <div className="real-work-side">
+          <Image src="/images/estrutura-endoscopia.webp" alt="Estrutura de equipamentos de endoscopia veterinária" width={900} height={1200} sizes="(max-width: 800px) 100vw, 32vw" unoptimized />
+          <div className="real-work-note"><span>Na prática</span><strong>Tecnologia, equipe e estrutura levadas até clínicas e hospitais.</strong></div>
+        </div>
+      </section>
+
       <section className="audience" id="veterinarios">
         <div className="audience-card tutor"><p className="eyebrow">Para tutores</p><h2>Orientação clara em um momento que pede agilidade.</h2><p>Nossa equipe explica o fluxo de atendimento e atua em conjunto com o veterinário responsável pelo seu animal.</p><a className="text-link" href={whatsapp} target="_blank" rel="noreferrer">Falar com a equipe →</a></div>
         <div className="audience-card vet"><p className="eyebrow">Para veterinários e clínicas</p><h2>Uma equipe especializada para somar ao seu atendimento.</h2><p>Levamos estrutura, experiência técnica e suporte para procedimentos em clínicas e hospitais de São Paulo e Grande São Paulo.</p><a className="text-link" href={whatsapp} target="_blank" rel="noreferrer">Acionar a Pet Endoscopia →</a></div>
       </section>
 
       <section className="authority" id="equipe">
-        <div><p className="eyebrow">Experiência e confiança</p><h2>Referência construída na prática e compartilhada na formação de profissionais.</h2></div>
+        <div className="authority-heading"><p className="eyebrow">Experiência e confiança</p><h2>Referência construída na prática e compartilhada na formação de profissionais.</h2><Image src="/images/luiz-palestra.webp" alt="Dr. Luiz Lima palestrando em evento de endoscopia veterinária" width={900} height={1200} sizes="(max-width: 680px) 100vw, 42vw" unoptimized /></div>
         <div className="authority-copy"><p>Liderada pelo Dr. Luiz Lima, a Pet Endoscopia atua com uma equipe formada por endoscopistas, cirurgiões, gastroenterologistas clínicos e parceiros anestesistas.</p><p>A trajetória inclui formação internacional, atuação acadêmica e participação em entidades dedicadas à endoscopia e à videocirurgia veterinária.</p><div className="education-links" aria-label="Formação profissional"><span>Formação profissional</span><a href={specialization} target="_blank" rel="noreferrer">Especialização em Endoscopia Veterinária ↗</a><a href={minivet} target="_blank" rel="noreferrer">Minivet Courses ↗</a></div><div className="rating"><strong>4,9/5</strong><span>avaliação na Petlove, parceria há mais de 10 anos</span></div></div>
+      </section>
+
+      <section className="wildlife">
+        <div className="wildlife-media">
+          <Image src="/images/atendimento-leao.webp" alt="Dr. Luiz Lima durante atendimento veterinário a um leão" width={960} height={1200} sizes="(max-width: 800px) 100vw, 50vw" unoptimized />
+          <span className="wildlife-caption">Atendimento realizado em parceria com instituição responsável</span>
+        </div>
+        <div className="wildlife-copy">
+          <p className="eyebrow">Experiência além do convencional</p>
+          <h2>Atuação também em casos envolvendo animais silvestres.</h2>
+          <p>Além do atendimento a cães e gatos, a experiência da Pet Endoscopia permite atuar, sob demanda, em casos específicos de animais silvestres, sempre em parceria com santuários e instituições especializadas.</p>
+          <p>É uma frente altamente específica, apoiada pelo mesmo rigor técnico, estrutura e planejamento aplicados aos demais pacientes.</p>
+          <span className="wildlife-tag">Atuação especializada sob demanda</span>
+        </div>
       </section>
 
       <section className="content-section" id="conteudos">
