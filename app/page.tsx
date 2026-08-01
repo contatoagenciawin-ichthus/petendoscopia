@@ -1,6 +1,12 @@
 import Image from "next/image";
+import { ContactForm } from "@/components/ContactForm";
+import { TrackedLink } from "@/components/TrackedLink";
+import { sourceMessage, whatsappUrl } from "@/lib/site";
 
-const whatsapp = "https://wa.me/5511969086688?text=Olá%2C%20vim%20pelo%20site%20da%20Pet%20Endoscopia%20e%20gostaria%20de%20informações%20sobre%20atendimento.";
+const whatsapp = whatsappUrl(sourceMessage("inicial"));
+const tutorWhatsapp = whatsappUrl(sourceMessage("inicial — tutores", "tutor"));
+const vetWhatsapp = whatsappUrl(sourceMessage("inicial — veterinários", "veterinario"));
+const clinicWhatsapp = whatsappUrl(sourceMessage("inicial — clínicas e hospitais", "clinica"));
 const instagram = "https://www.instagram.com/petendoscopia";
 const specialization = "https://cetacvet.com/especializacao-em-endoscopia-vet/";
 const minivet = "https://minivet.com.br/";
@@ -23,7 +29,7 @@ export default function Home() {
         <nav aria-label="Navegação principal">
           <a href="#servicos">Serviços</a><a href="#veterinarios">Para veterinários</a><a href="#equipe">Equipe</a><a href="#conteudos">Conteúdos</a>
         </nav>
-        <a className="button button-small" href={whatsapp} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+        <TrackedLink className="button button-small" href={whatsapp} target="_blank" rel="noreferrer" event="whatsapp_click" data={{source:"home",cta:"header"}}>Falar no WhatsApp</TrackedLink>
       </header>
 
       <section className="hero" id="inicio">
@@ -32,7 +38,7 @@ export default function Home() {
           <h1>Atendimento especializado onde seu paciente estiver.</h1>
           <p className="lead">Endoscopia veterinária, videocirurgia e procedimentos minimamente invasivos com equipe especializada e disponibilidade 24 horas.</p>
           <div className="actions">
-            <a className="button" href={whatsapp} target="_blank" rel="noreferrer">Solicitar atendimento</a>
+            <TrackedLink className="button" href={whatsapp} target="_blank" rel="noreferrer" event="whatsapp_click" data={{source:"home",cta:"hero"}}>Solicitar atendimento</TrackedLink>
             <a className="button button-outline" href="#veterinarios">Sou veterinário ou clínica</a>
           </div>
           <div className="proof" aria-label="Números da Pet Endoscopia">
@@ -53,7 +59,7 @@ export default function Home() {
       </section>
 
       <section className="services">
-        {services.map((service) => <article key={service.n}><span>{service.n}</span><h3>{service.title}</h3><p>{service.text}</p><a href={whatsapp} target="_blank" rel="noreferrer">Conversar sobre este serviço →</a></article>)}
+        {services.map((service) => <article key={service.n}><span>{service.n}</span><h3>{service.title}</h3><p>{service.text}</p><TrackedLink href={whatsappUrl(`Olá, vim pelo serviço “${service.title}” na página inicial da Pet Endoscopia e gostaria de orientação.`)} target="_blank" rel="noreferrer" event="whatsapp_click" data={{source:"home",cta:`service_${service.n}`}}>Conversar sobre este serviço →</TrackedLink></article>)}
       </section>
 
       <section className="real-work" aria-label="Pet Endoscopia em atendimento">
@@ -67,8 +73,8 @@ export default function Home() {
       </section>
 
       <section className="audience" id="veterinarios">
-        <div className="audience-card tutor"><p className="eyebrow">Para tutores</p><h2>Orientação clara em um momento que pede agilidade.</h2><p>Nossa equipe explica o fluxo de atendimento e atua em conjunto com o veterinário responsável pelo seu animal.</p><a className="text-link" href={whatsapp} target="_blank" rel="noreferrer">Falar com a equipe →</a></div>
-        <div className="audience-card vet"><p className="eyebrow">Para veterinários e clínicas</p><h2>Uma equipe especializada para somar ao seu atendimento.</h2><p>Levamos estrutura, experiência técnica e suporte para procedimentos em clínicas e hospitais de São Paulo e Grande São Paulo.</p><a className="text-link" href={whatsapp} target="_blank" rel="noreferrer">Acionar a Pet Endoscopia →</a></div>
+        <div className="audience-card tutor"><p className="eyebrow">Para tutores</p><h2>Orientação clara em um momento que pede agilidade.</h2><p>Nossa equipe explica o fluxo de atendimento e atua em conjunto com o veterinário responsável pelo seu animal.</p><TrackedLink className="text-link" href={tutorWhatsapp} target="_blank" rel="noreferrer" event="tutor_contact" data={{source:"home",cta:"audience_tutor"}}>Falar como tutor(a) →</TrackedLink></div>
+        <div className="audience-card vet"><p className="eyebrow">Para veterinários, clínicas e hospitais</p><h2>Uma equipe especializada para somar ao seu atendimento.</h2><p>Levamos estrutura, experiência técnica e suporte para procedimentos em clínicas e hospitais de São Paulo e Grande São Paulo.</p><div className="audience-links"><TrackedLink className="text-link" href={vetWhatsapp} target="_blank" rel="noreferrer" event="veterinarian_contact" data={{source:"home",cta:"audience_vet"}}>Sou médico-veterinário →</TrackedLink><TrackedLink className="text-link" href={clinicWhatsapp} target="_blank" rel="noreferrer" event="clinic_contact" data={{source:"home",cta:"audience_clinic"}}>Falo por clínica ou hospital →</TrackedLink></div></div>
       </section>
 
       <section className="authority" id="equipe">
@@ -94,7 +100,9 @@ export default function Home() {
         <p className="eyebrow">Informação para cuidar melhor</p><h2>Conteúdos sobre exames, procedimentos e saúde veterinária.</h2><p>Em breve, novos artigos técnicos para tutores, veterinários e equipes clínicas.</p>
       </section>
 
-      <section className="final-cta"><p className="eyebrow">Atendimento 24 horas</p><h2>Precisa de uma equipe especializada?</h2><p>Conte brevemente o caso e informe sua localização. Nossa equipe orientará os próximos passos.</p><a className="button light" href={whatsapp} target="_blank" rel="noreferrer">Falar com a Pet Endoscopia</a></section>
+      <section className="contact-section" id="contato"><div><p className="eyebrow">Contato inicial</p><h2>Envie as informações essenciais do caso.</h2><p>Você será direcionado ao WhatsApp com uma mensagem organizada. Em emergência, procure também atendimento veterinário presencial imediato.</p></div><ContactForm source="página inicial" /></section>
+
+      <section className="final-cta"><p className="eyebrow">Triagem e disponibilidade 24 horas</p><h2>Precisa de uma equipe especializada?</h2><p>Conte brevemente o caso e informe sua localização. O horário e o local do procedimento dependem da urgência, disponibilidade e estrutura necessária.</p><TrackedLink className="button light" href={whatsapp} target="_blank" rel="noreferrer" event="whatsapp_click" data={{source:"home",cta:"final"}}>Falar com a Pet Endoscopia</TrackedLink></section>
 
       <footer><a className="brand footer-brand" href="#inicio" aria-label="Pet Endoscopia — voltar ao início"><Image className="brand-logo" src="/logo-pet.png" alt="Pet Endoscopia" width={280} height={120} unoptimized /></a><div><p>São Paulo e Grande São Paulo</p><p><a href="tel:+5511969086688">(11) 96908-6688</a> · <a href="mailto:petendoscopia@outlook.com">petendoscopia@outlook.com</a></p><p className="footer-links"><a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={specialization} target="_blank" rel="noreferrer">Especialização ↗</a><a href={minivet} target="_blank" rel="noreferrer">Minivet Courses ↗</a></p></div><p>© 2026 Pet Endoscopia</p></footer>
     </main>
