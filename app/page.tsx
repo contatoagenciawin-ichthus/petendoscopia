@@ -1,6 +1,9 @@
 import Image from "next/image";
 
 const whatsapp = "https://wa.me/5511969086688?text=Olá%2C%20vim%20pelo%20site%20da%20Pet%20Endoscopia%20e%20gostaria%20de%20informações%20sobre%20atendimento.";
+const instagram = "https://www.instagram.com/petendoscopia";
+const specialization = "https://cetacvet.com/especializacao-em-endoscopia-vet/";
+const minivet = "https://minivet.com.br/";
 
 const services = [
   { n: "01", title: "Endoscopia veterinária", text: "Diagnóstico, biópsias e terapias por técnicas minimamente invasivas, incluindo digestiva, respiratória, urinária e otológica." },
@@ -15,8 +18,7 @@ export default function Home() {
       <div className="topbar">Atendimento 24 horas, todos os dias da semana.</div>
       <header className="header">
         <a className="brand" href="#inicio" aria-label="Pet Endoscopia — início">
-          <span className="brand-mark">PE</span>
-          <span><strong>Pet Endoscopia</strong><small>Medicina veterinária avançada</small></span>
+          <Image className="brand-logo" src="/logo-pet.png" alt="Pet Endoscopia" width={280} height={120} priority unoptimized />
         </a>
         <nav aria-label="Navegação principal">
           <a href="#servicos">Serviços</a><a href="#veterinarios">Para veterinários</a><a href="#equipe">Equipe</a><a href="#conteudos">Conteúdos</a>
@@ -61,7 +63,7 @@ export default function Home() {
 
       <section className="authority" id="equipe">
         <div><p className="eyebrow">Experiência e confiança</p><h2>Referência construída na prática e compartilhada na formação de profissionais.</h2></div>
-        <div className="authority-copy"><p>Liderada pelo Dr. Luiz Lima, a Pet Endoscopia atua com uma equipe formada por endoscopistas, cirurgiões, gastroenterologistas clínicos e parceiros anestesistas.</p><p>A trajetória inclui formação internacional, atuação acadêmica e participação em entidades dedicadas à endoscopia e à videocirurgia veterinária.</p><div className="rating"><strong>4,9/5</strong><span>avaliação na Petlove, parceria há mais de 10 anos</span></div></div>
+        <div className="authority-copy"><p>Liderada pelo Dr. Luiz Lima, a Pet Endoscopia atua com uma equipe formada por endoscopistas, cirurgiões, gastroenterologistas clínicos e parceiros anestesistas.</p><p>A trajetória inclui formação internacional, atuação acadêmica e participação em entidades dedicadas à endoscopia e à videocirurgia veterinária.</p><div className="education-links" aria-label="Formação profissional"><span>Formação profissional</span><a href={specialization} target="_blank" rel="noreferrer">Especialização em Endoscopia Veterinária ↗</a><a href={minivet} target="_blank" rel="noreferrer">Minivet Courses ↗</a></div><div className="rating"><strong>4,9/5</strong><span>avaliação na Petlove, parceria há mais de 10 anos</span></div></div>
       </section>
 
       <section className="content-section" id="conteudos">
@@ -70,7 +72,7 @@ export default function Home() {
 
       <section className="final-cta"><p className="eyebrow">Atendimento 24 horas</p><h2>Precisa de uma equipe especializada?</h2><p>Conte brevemente o caso e informe sua localização. Nossa equipe orientará os próximos passos.</p><a className="button light" href={whatsapp} target="_blank" rel="noreferrer">Falar com a Pet Endoscopia</a></section>
 
-      <footer><a className="brand footer-brand" href="#inicio"><span className="brand-mark">PE</span><span><strong>Pet Endoscopia</strong><small>Medicina veterinária avançada</small></span></a><div><p>São Paulo e Grande São Paulo</p><p><a href="tel:+5511969086688">(11) 96908-6688</a> · <a href="mailto:petendoscopia@outlook.com">petendoscopia@outlook.com</a></p></div><p>© 2026 Pet Endoscopia</p></footer>
+      <footer><a className="brand footer-brand" href="#inicio" aria-label="Pet Endoscopia — voltar ao início"><Image className="brand-logo" src="/logo-pet.png" alt="Pet Endoscopia" width={280} height={120} unoptimized /></a><div><p>São Paulo e Grande São Paulo</p><p><a href="tel:+5511969086688">(11) 96908-6688</a> · <a href="mailto:petendoscopia@outlook.com">petendoscopia@outlook.com</a></p><p className="footer-links"><a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={specialization} target="_blank" rel="noreferrer">Especialização ↗</a><a href={minivet} target="_blank" rel="noreferrer">Minivet Courses ↗</a></p></div><p>© 2026 Pet Endoscopia</p></footer>
     </main>
   );
 }
