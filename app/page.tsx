@@ -48,7 +48,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-media">
-          <Image src="/hero-pet-endoscopia.webp" alt="Equipe veterinária realizando procedimento de endoscopia" width={1448} height={1086} priority unoptimized sizes="(max-width: 1050px) 100vw, 56vw" />
+          <Image src="/images/luiz-endoscopia.jpg" alt="Dr. Luiz Lima com equipamento de endoscopia veterinária" width={1080} height={1350} priority unoptimized sizes="(max-width: 1050px) 100vw, 56vw" />
           <div className="floating-card"><span>Atendimento móvel</span><strong>Estrutura completa em clínicas e hospitais</strong></div>
         </div>
       </section>
