@@ -1,0 +1,2 @@
+Technical deployment trigger for production synchronization on 2026-08-04.
+No application behavior is changed by this file.
