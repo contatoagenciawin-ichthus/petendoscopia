@@ -1,0 +1,2 @@
+Trigger a fresh Vercel build from the current main branch after reconnecting the Git integration.
+This file has no effect on application behavior.
