@@ -66,9 +66,9 @@ export default function Home() {
         <div className="real-work-main">
           <Image src="/images/equipe-procedimento.webp" alt="Equipe da Pet Endoscopia realizando um procedimento veterinário" width={1050} height={1400} sizes="(max-width: 800px) 100vw, 60vw" unoptimized />
         </div>
-        <div className="real-work-side">
-          <Image src="/images/estrutura-endoscopia.webp" alt="Estrutura de equipamentos de endoscopia veterinária" width={900} height={1200} sizes="(max-width: 800px) 100vw, 32vw" unoptimized />
-          <div className="real-work-note"><span>Na prática</span><strong>Tecnologia, equipe e estrutura levadas até clínicas e hospitais.</strong></div>
+        <div className="real-work-side" style={{ gridTemplateRows: "330px minmax(190px, 1fr)" }}>
+          <Image src="/images/videocirurgia.jpg" alt="Equipe e estrutura durante procedimento de videocirurgia veterinária" width={1080} height={1350} sizes="(max-width: 800px) 100vw, 32vw" unoptimized />
+          <div className="real-work-note" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}><span>Na prática</span><strong>Tecnologia, equipe e estrutura levadas até clínicas e hospitais.</strong></div>
         </div>
       </section>
 
